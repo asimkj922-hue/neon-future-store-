@@ -1,0 +1,1345 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NEON — Future of Tech</title>
+
+    <meta
+        name="description"
+        content="NEON — a futuristic technology store built for the next generation."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         BACKGROUND
+    ========================================== -->
+
+    <div class="background-system">
+        <div class="ambient ambient-one"></div>
+        <div class="ambient ambient-two"></div>
+        <div class="ambient ambient-three"></div>
+
+        <div class="grid-floor"></div>
+
+        <canvas id="particleCanvas"></canvas>
+
+        <div class="scanlines"></div>
+    </div>
+
+
+    <!-- =========================================
+         NAVBAR
+    ========================================== -->
+
+    <header class="navbar">
+
+        <a href="index.html" class="brand">
+            <span class="brand-mark">N</span>
+
+            <span class="brand-text">
+                <strong>NEON</strong>
+                <small>FUTURE STORE</small>
+            </span>
+        </a>
+
+
+        <nav class="main-nav">
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#categories">Categories</a>
+            <a href="#about">About</a>
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <button
+                class="search-btn"
+                id="searchButton"
+                aria-label="Search"
+            >
+                <span>⌕</span>
+            </button>
+
+
+            <button
+                class="cart-btn"
+                id="cartButton"
+                aria-label="Shopping Cart"
+            >
+                <span>🛒</span>
+                <span class="cart-count">0</span>
+            </button>
+
+
+            <!-- IMPORTANT:
+                 These are real links.
+                 JavaScript does NOT control navigation.
+                 This prevents the refresh/navigation problem.
+            -->
+
+            <a href="login.html" class="login-btn">
+                Login
+            </a>
+
+            <a href="signup.html" class="signup-btn">
+                Sign Up
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         SEARCH PANEL
+    ========================================== -->
+
+    <section class="search-panel" id="searchPanel">
+
+        <div class="search-inner">
+
+            <div class="search-title">
+                <span>SEARCH NEON</span>
+                <small>Find your next device</small>
+            </div>
+
+            <div class="search-box">
+
+                <span>⌕</span>
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search products..."
+                    autocomplete="off"
+                >
+
+                <button id="closeSearch">
+                    ESC
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         HERO
+    ========================================== -->
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+
+                <div class="hero-status">
+                    <span class="status-dot"></span>
+                    SYSTEM ONLINE
+                </div>
+
+
+                <h1>
+                    ENTER THE
+                    <span>FUTURE.</span>
+                </h1>
+
+
+                <p class="hero-description">
+                    Discover powerful technology, futuristic accessories,
+                    and next-generation gear designed for the way you live,
+                    work and create.
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a href="#products" class="primary-btn">
+                        Explore Products
+                        <span>→</span>
+                    </a>
+
+                    <a href="#categories" class="secondary-btn">
+                        Browse Categories
+                    </a>
+
+                </div>
+
+
+                <div class="hero-stats">
+
+                    <div class="stat">
+                        <strong>100+</strong>
+                        <span>Products</span>
+                    </div>
+
+                    <div class="stat-line"></div>
+
+                    <div class="stat">
+                        <strong>24/7</strong>
+                        <span>Online Store</span>
+                    </div>
+
+                    <div class="stat-line"></div>
+
+                    <div class="stat">
+                        <strong>NEON</strong>
+                        <span>Technology</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- HERO VISUAL -->
+
+            <div class="hero-visual">
+
+                <div class="hero-orbit orbit-one"></div>
+                <div class="hero-orbit orbit-two"></div>
+                <div class="hero-orbit orbit-three"></div>
+
+
+                <div class="hero-device">
+
+                    <div class="device-glow"></div>
+
+                    <div class="device-screen">
+
+                        <div class="screen-top">
+                            <span>NEON_OS</span>
+                            <span>● ONLINE</span>
+                        </div>
+
+                        <div class="screen-center">
+
+                            <div class="neon-symbol">
+                                N
+                            </div>
+
+                            <strong>
+                                NEXT
+                                <br>
+                                GENERATION
+                            </strong>
+
+                        </div>
+
+                        <div class="screen-bottom">
+                            <span>POWER</span>
+                            <span>98%</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="floating-card card-one">
+                    <span>⚡</span>
+                    <div>
+                        <small>PERFORMANCE</small>
+                        <strong>ULTRA FAST</strong>
+                    </div>
+                </div>
+
+
+                <div class="floating-card card-two">
+                    <span>◈</span>
+                    <div>
+                        <small>CONNECTION</small>
+                        <strong>ONLINE</strong>
+                    </div>
+                </div>
+
+
+                <div class="floating-card card-three">
+                    <span>✦</span>
+                    <div>
+                        <small>DESIGNED FOR</small>
+                        <strong>THE FUTURE</strong>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             MARQUEE
+        ========================================== -->
+
+        <section class="marquee-section">
+
+            <div class="marquee">
+
+                <span>FUTURE TECHNOLOGY</span>
+                <b>✦</b>
+
+                <span>SMART DEVICES</span>
+                <b>✦</b>
+
+                <span>PREMIUM GEAR</span>
+                <b>✦</b>
+
+                <span>NEON EXPERIENCE</span>
+                <b>✦</b>
+
+                <span>FUTURE TECHNOLOGY</span>
+                <b>✦</b>
+
+                <span>SMART DEVICES</span>
+                <b>✦</b>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             CATEGORIES
+        ========================================== -->
+
+        <section class="section" id="categories">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">
+                        01 / CATEGORIES
+                    </span>
+
+                    <h2>
+                        CHOOSE YOUR
+                        <span>WORLD.</span>
+                    </h2>
+                </div>
+
+                <p>
+                    Explore technology built around your everyday life.
+                </p>
+
+            </div>
+
+
+            <div class="category-grid">
+
+                <button
+                    class="category-card active"
+                    data-category="all"
+                >
+                    <div class="category-icon">◈</div>
+                    <span>ALL</span>
+                    <small>Everything</small>
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="audio"
+                >
+                    <div class="category-icon">◉</div>
+                    <span>AUDIO</span>
+                    <small>Sound & Headphones</small>
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="computing"
+                >
+                    <div class="category-icon">▣</div>
+                    <span>COMPUTING</span>
+                    <small>Laptops & Accessories</small>
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="mobile"
+                >
+                    <div class="category-icon">▯</div>
+                    <span>MOBILE</span>
+                    <small>Smart Devices</small>
+                </button>
+
+
+                <button
+                    class="category-card"
+                    data-category="setup"
+                >
+                    <div class="category-icon">⌘</div>
+                    <span>SETUP</span>
+                    <small>Desk Essentials</small>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             PRODUCTS
+        ========================================== -->
+
+        <section class="section products-section" id="products">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        02 / FEATURED STORE
+                    </span>
+
+                    <h2>
+                        LEVEL UP
+                        <span>YOUR SETUP.</span>
+                    </h2>
+
+                </div>
+
+                <button
+                    class="show-all-btn"
+                    id="showAllProducts"
+                >
+                    View All →
+                </button>
+
+            </div>
+
+
+            <div class="products-grid" id="productsGrid">
+
+
+                <!-- PRODUCT 01 -->
+
+                <article
+                    class="product-card"
+                    data-category="audio"
+                    data-name="Neon Wireless Headphones"
+                >
+
+                    <div class="product-image">
+
+                        <span class="product-badge">
+                            NEW
+                        </span>
+
+                        <img
+                            src="https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                            alt="Wireless headphones"
+                            loading="lazy"
+                        >
+
+                        <button
+                            class="quick-add"
+                            data-add="Neon Wireless Headphones"
+                        >
+                            + ADD
+                        </button>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <span class="product-category">
+                            AUDIO
+                        </span>
+
+                        <h3>
+                            Neon Wireless Headphones
+                        </h3>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(48)</span>
+                        </div>
+
+                        <div class="product-bottom">
+
+                            <strong>
+                                $79
+                            </strong>
+
+                            <button
+                                class="add-cart"
+                                data-add="Neon Wireless Headphones"
+                            >
+                                ADD TO CART
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PRODUCT 02 -->
+
+                <article
+                    class="product-card"
+                    data-category="computing"
+                    data-name="RGB Mechanical Keyboard"
+                >
+
+                    <div class="product-image">
+
+                        <span class="product-badge hot">
+                            HOT
+                        </span>
+
+                        <img
+                            src="https://images.pexels.com/photos/2115256/pexels-photo-2115256.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                            alt="Mechanical keyboard"
+                            loading="lazy"
+                        >
+
+                        <button
+                            class="quick-add"
+                            data-add="RGB Mechanical Keyboard"
+                        >
+                            + ADD
+                        </button>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <span class="product-category">
+                            COMPUTING
+                        </span>
+
+                        <h3>
+                            RGB Mechanical Keyboard
+                        </h3>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(72)</span>
+                        </div>
+
+                        <div class="product-bottom">
+
+                            <strong>
+                                $69
+                            </strong>
+
+                            <button
+                                class="add-cart"
+                                data-add="RGB Mechanical Keyboard"
+                            >
+                                ADD TO CART
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PRODUCT 03 -->
+
+                <article
+                    class="product-card"
+                    data-category="mobile"
+                    data-name="Nova Smartphone"
+                >
+
+                    <div class="product-image">
+
+                        <span class="product-badge">
+                            NEW
+                        </span>
+
+                        <img
+                            src="https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                            alt="Modern smartphone"
+                            loading="lazy"
+                        >
+
+                        <button
+                            class="quick-add"
+                            data-add="Nova Smartphone"
+                        >
+                            + ADD
+                        </button>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <span class="product-category">
+                            MOBILE
+                        </span>
+
+                        <h3>
+                            Nova Smartphone
+                        </h3>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(35)</span>
+                        </div>
+
+                        <div class="product-bottom">
+
+                            <strong>
+                                $499
+                            </strong>
+
+                            <button
+                                class="add-cart"
+                                data-add="Nova Smartphone"
+                            >
+                                ADD TO CART
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PRODUCT 04 -->
+
+                <article
+                    class="product-card"
+                    data-category="setup"
+                    data-name="Creator Desk Light"
+                >
+
+                    <div class="product-image">
+
+                        <span class="product-badge sale">
+                            SALE
+                        </span>
+
+                        <img
+                            src="https://images.pexels.com/photos/1112598/pexels-photo-1112598.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                            alt="Modern desk setup"
+                            loading="lazy"
+                        >
+
+                        <button
+                            class="quick-add"
+                            data-add="Creator Desk Light"
+                        >
+                            + ADD
+                        </button>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <span class="product-category">
+                            SETUP
+                        </span>
+
+                        <h3>
+                            Creator Desk Light
+                        </h3>
+
+                        <div class="rating">
+                            ★★★★☆
+                            <span>(29)</span>
+                        </div>
+
+                        <div class="product-bottom">
+
+                            <strong>
+                                $39
+                            </strong>
+
+                            <button
+                                class="add-cart"
+                                data-add="Creator Desk Light"
+                            >
+                                ADD TO CART
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PRODUCT 05 -->
+
+                <article
+                    class="product-card"
+                    data-category="audio"
+                    data-name="Studio Headset"
+                >
+
+                    <div class="product-image">
+
+                        <img
+                            src="https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                            alt="Studio headphones"
+                            loading="lazy"
+                        >
+
+                        <button
+                            class="quick-add"
+                            data-add="Studio Headset"
+                        >
+                            + ADD
+                        </button>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <span class="product-category">
+                            AUDIO
+                        </span>
+
+                        <h3>
+                            Studio Headset
+                        </h3>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(61)</span>
+                        </div>
+
+                        <div class="product-bottom">
+
+                            <strong>
+                                $89
+                            </strong>
+
+                            <button
+                                class="add-cart"
+                                data-add="Studio Headset"
+                            >
+                                ADD TO CART
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PRODUCT 06 -->
+
+                <article
+                    class="product-card"
+                    data-category="computing"
+                    data-name="Ultra Laptop"
+                >
+
+                    <div class="product-image">
+
+                        <span class="product-badge hot">
+                            PRO
+                        </span>
+
+                        <img
+                            src="https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1000"
+                            alt="Laptop computer"
+                            loading="lazy"
+                        >
+
+                        <button
+                            class="quick-add"
+                            data-add="Ultra Laptop"
+                        >
+                            + ADD
+                        </button>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <span class="product-category">
+                            COMPUTING
+                        </span>
+
+                        <h3>
+                            Ultra Laptop
+                        </h3>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(84)</span>
+                        </div>
+
+                        <div class="product-bottom">
+
+                            <strong>
+                                $899
+                            </strong>
+
+                            <button
+                                class="add-cart"
+                                data-add="Ultra Laptop"
+                            >
+                                ADD TO CART
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PRODUCT 07 -->
+
+                <article
+                    class="product-card"
+                    data-category="setup"
+                    data-name="Precision Mouse"
+                >
+
+                    <div class="product-image">
+
+                        <img
+                            src="https://images.pexels.com/photos/211122/pexels-photo-211122.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                            alt="Computer mouse"
+                            loading="lazy"
+                        >
+
+                        <button
+                            class="quick-add"
+                            data-add="Precision Mouse"
+                        >
+                            + ADD
+                        </button>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <span class="product-category">
+                            SETUP
+                        </span>
+
+                        <h3>
+                            Precision Mouse
+                        </h3>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(44)</span>
+                        </div>
+
+                        <div class="product-bottom">
+
+                            <strong>
+                                $49
+                            </strong>
+
+                            <button
+                                class="add-cart"
+                                data-add="Precision Mouse"
+                            >
+                                ADD TO CART
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PRODUCT 08 -->
+
+                <article
+                    class="product-card"
+                    data-category="mobile"
+                    data-name="Smart Watch X"
+                >
+
+                    <div class="product-image">
+
+                        <span class="product-badge">
+                            NEW
+                        </span>
+
+                        <img
+                            src="https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                            alt="Smart watch"
+                            loading="lazy"
+                        >
+
+                        <button
+                            class="quick-add"
+                            data-add="Smart Watch X"
+                        >
+                            + ADD
+                        </button>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <span class="product-category">
+                            MOBILE
+                        </span>
+
+                        <h3>
+                            Smart Watch X
+                        </h3>
+
+                        <div class="rating">
+                            ★★★★☆
+                            <span>(31)</span>
+                        </div>
+
+                        <div class="product-bottom">
+
+                            <strong>
+                                $129
+                            </strong>
+
+                            <button
+                                class="add-cart"
+                                data-add="Smart Watch X"
+                            >
+                                ADD TO CART
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <div class="empty-products" id="emptyProducts">
+
+                <div>⌁</div>
+
+                <h3>
+                    NO PRODUCTS FOUND
+                </h3>
+
+                <p>
+                    Try another search or category.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             FEATURE BANNER
+        ========================================== -->
+
+        <section class="feature-section">
+
+            <div class="feature-content">
+
+                <span class="section-label">
+                    03 / NEON EXPERIENCE
+                </span>
+
+                <h2>
+                    TECHNOLOGY
+                    <span>WITHOUT LIMITS.</span>
+                </h2>
+
+                <p>
+                    NEON brings together modern technology and a futuristic
+                    experience in one place.
+                </p>
+
+                <a href="#products" class="primary-btn">
+                    Discover More
+                    <span>→</span>
+                </a>
+
+            </div>
+
+
+            <div class="feature-visual">
+
+                <div class="feature-ring"></div>
+
+                <div class="feature-core">
+                    N
+                </div>
+
+                <div class="feature-data data-one">
+                    010101
+                </div>
+
+                <div class="feature-data data-two">
+                    NEON_2026
+                </div>
+
+                <div class="feature-data data-three">
+                    SYSTEM_READY
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             ABOUT
+        ========================================== -->
+
+        <section class="section about-section" id="about">
+
+            <div class="about-grid">
+
+                <div class="about-title">
+
+                    <span class="section-label">
+                        04 / ABOUT NEON
+                    </span>
+
+                    <h2>
+                        BUILT FOR
+                        <span>WHAT'S NEXT.</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="about-text">
+
+                    <p>
+                        NEON is a futuristic technology store concept
+                        focused on making digital shopping feel different.
+                    </p>
+
+                    <p>
+                        Clean interfaces. Powerful products. A visual
+                        experience inspired by the technology of tomorrow.
+                    </p>
+
+
+                    <div class="about-points">
+
+                        <div>
+                            <strong>01</strong>
+                            <span>Modern Design</span>
+                        </div>
+
+                        <div>
+                            <strong>02</strong>
+                            <span>Simple Shopping</span>
+                        </div>
+
+                        <div>
+                            <strong>03</strong>
+                            <span>Future Focused</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             DEVELOPER
+        ========================================== -->
+
+        <section class="developer-section">
+
+            <div class="developer-card">
+
+                <div class="developer-grid"></div>
+
+                <div class="developer-content">
+
+                    <span class="developer-label">
+                        SYSTEM CREATOR
+                    </span>
+
+                    <h2>
+                        DESIGNED &
+                        <span>DEVELOPED BY ASIM.</span>
+                    </h2>
+
+                    <p>
+                        NEON is a personal web development project created
+                        by Asim — combining code, design and futuristic
+                        interfaces into one experience.
+                    </p>
+
+                    <div class="developer-signature">
+                        <span>ASIM</span>
+                        <small>DEVELOPER / CREATOR</small>
+                    </div>
+
+                </div>
+
+
+                <div class="developer-mark">
+                    <span>A</span>
+                    <small>NEON.DEV</small>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         CART DRAWER
+    ========================================== -->
+
+    <aside class="cart-drawer" id="cartDrawer">
+
+        <div class="cart-header">
+
+            <div>
+                <span class="section-label">
+                    YOUR CART
+                </span>
+
+                <h2>
+                    SHOPPING BAG
+                </h2>
+            </div>
+
+            <button id="closeCart">
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="cart-items" id="cartItems">
+
+            <div class="cart-empty">
+
+                <div>🛒</div>
+
+                <h3>
+                    YOUR CART IS EMPTY
+                </h3>
+
+                <p>
+                    Add something futuristic.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="cart-footer">
+
+            <div class="cart-total">
+
+                <span>
+                    TOTAL
+                </span>
+
+                <strong id="cartTotal">
+                    $0
+                </strong>
+
+            </div>
+
+            <button
+                class="checkout-btn"
+                id="checkoutButton"
+            >
+                CHECKOUT →
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <div
+        class="cart-overlay"
+        id="cartOverlay"
+    ></div>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="brand">
+
+                    <span class="brand-mark">
+                        N
+                    </span>
+
+                    <span class="brand-text">
+
+                        <strong>
+                            NEON
+                        </strong>
+
+                        <small>
+                            FUTURE STORE
+                        </small>
+
+                    </span>
+
+                </a>
+
+
+                <p>
+                    Technology for the next generation.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    EXPLORE
+                </h4>
+
+                <a href="#home">
+                    Home
+                </a>
+
+                <a href="#products">
+                    Products
+                </a>
+
+                <a href="#categories">
+                    Categories
+                </a>
+
+                <a href="#about">
+                    About
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    ACCOUNT
+                </h4>
+
+                <a href="login.html">
+                    Login
+                </a>
+
+                <a href="signup.html">
+                    Create Account
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    NEON
+                </h4>
+
+                <span>
+                    Future Store
+                </span>
+
+                <span>
+                    Digital Experience
+                </span>
+
+                <span>
+                    Made by Asim
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 NEON. All rights reserved.
+            </span>
+
+            <span>
+                DESIGNED & DEVELOPED BY <strong>ASIM</strong>
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================
+         TOAST
+    ========================================== -->
+
+    <div
+        class="toast"
+        id="toast"
+    >
+        <span>✓</span>
+        <div>
+            <strong>ADDED TO CART</strong>
+            <small id="toastMessage">
+                Product added successfully.
+            </small>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+```

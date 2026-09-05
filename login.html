@@ -1,0 +1,516 @@
+\```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEON — Login</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+    --bg:#03040a;
+    --card:rgba(10,14,25,.78);
+    --cyan:#00f5ff;
+    --purple:#8b5cff;
+    --pink:#ff3cac;
+    --text:#f5f7ff;
+    --muted:#8d96aa;
+    --border:rgba(255,255,255,.09);
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 15% 20%,rgba(0,245,255,.12),transparent 30%),
+        radial-gradient(circle at 85% 80%,rgba(139,92,255,.15),transparent 30%),
+        var(--bg);
+    color:var(--text);
+    font-family:Inter,sans-serif;
+    overflow-x:hidden;
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.25;
+    background-image:
+        linear-gradient(rgba(0,245,255,.05) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(0,245,255,.05) 1px,transparent 1px);
+    background-size:55px 55px;
+}
+
+.back{
+    position:fixed;
+    top:25px;
+    left:30px;
+    color:#aab3c7;
+    text-decoration:none;
+    font-size:14px;
+    z-index:10;
+    transition:.3s;
+}
+
+.back:hover{color:var(--cyan)}
+
+.container{
+    width:min(1050px,92%);
+    min-height:100vh;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 460px;
+    align-items:center;
+    gap:70px;
+    padding:80px 0;
+}
+
+.brand{
+    font-family:Orbitron,sans-serif;
+    font-size:28px;
+    font-weight:800;
+    letter-spacing:5px;
+    color:white;
+}
+
+.brand span{
+    color:var(--cyan);
+    text-shadow:0 0 25px rgba(0,245,255,.7);
+}
+
+.online{
+    margin-top:12px;
+    color:#69748a;
+    font-size:11px;
+    letter-spacing:3px;
+}
+
+.hero h1{
+    margin-top:80px;
+    font-family:Orbitron,sans-serif;
+    font-size:clamp(45px,6vw,82px);
+    line-height:.98;
+    letter-spacing:-3px;
+}
+
+.hero h1 span{
+    display:block;
+    background:linear-gradient(90deg,var(--cyan),var(--purple),var(--pink));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    max-width:500px;
+    margin-top:25px;
+    color:var(--muted);
+    line-height:1.8;
+    font-size:15px;
+}
+
+.status{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    margin-top:30px;
+    padding:10px 14px;
+    border:1px solid rgba(0,245,255,.15);
+    border-radius:30px;
+    background:rgba(0,245,255,.04);
+    color:#9aa6b9;
+    font-size:11px;
+    letter-spacing:1px;
+}
+
+.dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#00ff9d;
+    box-shadow:0 0 12px #00ff9d;
+}
+
+.card{
+    position:relative;
+    padding:38px;
+    border:1px solid var(--border);
+    border-radius:24px;
+    background:var(--card);
+    backdrop-filter:blur(25px);
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.5),
+        0 0 50px rgba(0,245,255,.05);
+}
+
+.card:before{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    border-radius:24px;
+    padding:1px;
+    background:linear-gradient(135deg,rgba(0,245,255,.5),transparent 40%,rgba(139,92,255,.4));
+    -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    pointer-events:none;
+}
+
+.card-label{
+    color:var(--cyan);
+    font-family:Orbitron,sans-serif;
+    font-size:10px;
+    letter-spacing:3px;
+}
+
+.card h2{
+    margin-top:12px;
+    font-family:Orbitron,sans-serif;
+    font-size:31px;
+}
+
+.card-sub{
+    color:var(--muted);
+    font-size:13px;
+    margin-top:8px;
+    margin-bottom:30px;
+}
+
+.group{margin-bottom:19px}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    color:#cbd2df;
+    font-size:12px;
+    font-weight:600;
+}
+
+.input{
+    position:relative;
+}
+
+.input input{
+    width:100%;
+    height:54px;
+    padding:0 45px 0 16px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:12px;
+    outline:none;
+    background:rgba(255,255,255,.035);
+    color:white;
+    font:inherit;
+    transition:.25s;
+}
+
+.input input:focus{
+    border-color:var(--cyan);
+    box-shadow:0 0 25px rgba(0,245,255,.1);
+}
+
+.input input::placeholder{color:#596274}
+
+.toggle{
+    position:absolute;
+    right:12px;
+    top:50%;
+    transform:translateY(-50%);
+    border:0;
+    background:none;
+    color:#778197;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.toggle:hover{color:var(--cyan)}
+
+.error{
+    display:block;
+    min-height:16px;
+    margin-top:5px;
+    color:#ff648f;
+    font-size:11px;
+}
+
+.forgot{
+    float:right;
+    margin-top:-29px;
+    border:0;
+    background:none;
+    color:var(--cyan);
+    cursor:pointer;
+    font-size:11px;
+}
+
+.submit{
+    width:100%;
+    height:55px;
+    margin-top:4px;
+    border:0;
+    border-radius:12px;
+    cursor:pointer;
+    background:linear-gradient(90deg,var(--cyan),#4da8ff,var(--purple));
+    color:#02050a;
+    font-family:Orbitron,sans-serif;
+    font-weight:800;
+    letter-spacing:1px;
+    box-shadow:0 0 30px rgba(0,245,255,.2);
+    transition:.3s;
+}
+
+.submit:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 45px rgba(0,245,255,.35);
+}
+
+.message{
+    min-height:20px;
+    margin-top:14px;
+    text-align:center;
+    font-size:12px;
+}
+
+.message.success{color:#00ffae}
+.message.error-message{color:#ff648f}
+
+.divider{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:25px 0;
+    color:#555e70;
+    font-size:10px;
+}
+
+.divider:before,.divider:after{
+    content:"";
+    height:1px;
+    flex:1;
+    background:rgba(255,255,255,.08);
+}
+
+.switch{
+    text-align:center;
+    color:#7d879b;
+    font-size:13px;
+}
+
+.switch a{
+    color:var(--cyan);
+    text-decoration:none;
+    font-weight:700;
+}
+
+.demo{
+    text-align:center;
+    margin-top:22px;
+    color:#4e586b;
+    font-size:9px;
+    letter-spacing:2px;
+}
+
+@media(max-width:800px){
+    .container{
+        grid-template-columns:1fr;
+        max-width:520px;
+        padding:90px 0 40px;
+    }
+
+    .hero{
+        display:none;
+    }
+
+    .card{
+        width:100%;
+    }
+}
+
+@media(max-width:480px){
+    .back{left:18px}
+    .card{padding:28px 22px}
+}
+</style>
+</head>
+
+<body>
+
+<a class="back" href="index.html">← Back to NEON</a>
+
+<main class="container">
+
+    <section class="hero">
+        <div class="brand">N<span>E</span>ON</div>
+        <div class="online">SYSTEM ONLINE / ACCESS PORTAL</div>
+
+        <h1>
+            ENTER THE
+            <span>FUTURE.</span>
+        </h1>
+
+        <p>
+            Welcome back. Sign in to continue exploring the NEON
+            technology experience.
+        </p>
+
+        <div class="status">
+            <span class="dot"></span>
+            NETWORK SECURE
+        </div>
+    </section>
+
+    <section class="card">
+
+        <div class="card-label">ACCOUNT ACCESS</div>
+        <h2>Sign In</h2>
+        <p class="card-sub">Enter your account details below.</p>
+
+        <form id="loginForm" novalidate>
+
+            <div class="group">
+                <label for="email">EMAIL ADDRESS</label>
+                <div class="input">
+                    <input
+                        id="email"
+                        type="email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                    >
+                </div>
+                <span class="error" id="emailError"></span>
+            </div>
+
+            <div class="group">
+                <label for="password">PASSWORD</label>
+
+                <button type="button" class="forgot" id="forgot">
+                    Forgot password?
+                </button>
+
+                <div class="input">
+                    <input
+                        id="password"
+                        type="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                    >
+
+                    <button type="button" class="toggle" id="toggle">
+                        ◉
+                    </button>
+                </div>
+
+                <span class="error" id="passwordError"></span>
+            </div>
+
+            <button class="submit" type="submit">
+                LOGIN TO NEON →
+            </button>
+
+            <div class="message" id="message"></div>
+
+        </form>
+
+        <div class="divider">OR</div>
+
+        <div class="switch">
+            Don't have an account?
+            <a href="signup.html">Create one</a>
+        </div>
+
+        <div class="demo">
+            FRONT-END DEMO AUTHENTICATION
+        </div>
+
+    </section>
+
+</main>
+
+<script>
+const form = document.getElementById("loginForm");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+
+const emailError = document.getElementById("emailError");
+const passwordError = document.getElementById("passwordError");
+const message = document.getElementById("message");
+
+document.getElementById("toggle").addEventListener("click", () => {
+    password.type = password.type === "password" ? "text" : "password";
+});
+
+document.getElementById("forgot").addEventListener("click", () => {
+    alert("Password recovery will be added when we connect a real backend.");
+});
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    emailError.textContent = "";
+    passwordError.textContent = "";
+    message.textContent = "";
+    message.className = "message";
+
+    const enteredEmail = email.value.trim().toLowerCase();
+    const enteredPassword = password.value;
+
+    let valid = true;
+
+    if (!enteredEmail) {
+        emailError.textContent = "Enter your email address.";
+        valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(enteredEmail)) {
+        emailError.textContent = "Enter a valid email address.";
+        valid = false;
+    }
+
+    if (!enteredPassword) {
+        passwordError.textContent = "Enter your password.";
+        valid = false;
+    }
+
+    if (!valid) return;
+
+    let user = null;
+
+    try {
+        user = JSON.parse(localStorage.getItem("neonUser"));
+    } catch {
+        user = null;
+    }
+
+    if (!user) {
+        message.textContent = "No account found. Create an account first.";
+        message.classList.add("error-message");
+        return;
+    }
+
+    if (
+        user.email.toLowerCase() !== enteredEmail ||
+        user.password !== enteredPassword
+    ) {
+        message.textContent = "Incorrect email or password.";
+        message.classList.add("error-message");
+        return;
+    }
+
+    localStorage.setItem("neonLoggedIn", "true");
+
+    message.textContent = "LOGIN SUCCESSFUL ✓";
+    message.classList.add("success");
+
+    setTimeout(() => {
+        window.location.href = "index.html";
+    }, 700);
+});
+</script>
+
+</body>
+</html>
+```

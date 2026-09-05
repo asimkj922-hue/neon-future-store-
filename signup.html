@@ -1,0 +1,574 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEON — Sign Up</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+    --bg:#03040a;
+    --cyan:#00f5ff;
+    --purple:#8b5cff;
+    --pink:#ff3cac;
+    --text:#f5f7ff;
+    --muted:#8d96aa;
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 15% 20%,rgba(0,245,255,.12),transparent 30%),
+        radial-gradient(circle at 85% 80%,rgba(139,92,255,.15),transparent 30%),
+        var(--bg);
+    color:var(--text);
+    font-family:Inter,sans-serif;
+    overflow-x:hidden;
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.25;
+    background-image:
+        linear-gradient(rgba(0,245,255,.05) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(0,245,255,.05) 1px,transparent 1px);
+    background-size:55px 55px;
+}
+
+.back{
+    position:fixed;
+    top:25px;
+    left:30px;
+    color:#aab3c7;
+    text-decoration:none;
+    font-size:14px;
+    z-index:10;
+}
+
+.back:hover{color:var(--cyan)}
+
+.container{
+    width:min(1050px,92%);
+    min-height:100vh;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 460px;
+    align-items:center;
+    gap:70px;
+    padding:70px 0;
+}
+
+.brand{
+    font-family:Orbitron,sans-serif;
+    font-size:28px;
+    font-weight:800;
+    letter-spacing:5px;
+}
+
+.brand span{color:var(--cyan)}
+
+.online{
+    margin-top:12px;
+    color:#69748a;
+    font-size:11px;
+    letter-spacing:3px;
+}
+
+.hero h1{
+    margin-top:70px;
+    font-family:Orbitron,sans-serif;
+    font-size:clamp(45px,6vw,82px);
+    line-height:.98;
+}
+
+.hero h1 span{
+    display:block;
+    background:linear-gradient(90deg,var(--cyan),var(--purple),var(--pink));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    max-width:500px;
+    margin-top:25px;
+    color:var(--muted);
+    line-height:1.8;
+    font-size:15px;
+}
+
+.features{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:28px;
+}
+
+.feature{
+    padding:9px 12px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:30px;
+    color:#8994a9;
+    font-size:10px;
+}
+
+.card{
+    padding:34px 38px;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:24px;
+    background:rgba(10,14,25,.8);
+    backdrop-filter:blur(25px);
+    box-shadow:0 30px 100px rgba(0,0,0,.55);
+}
+
+.label{
+    color:var(--cyan);
+    font-family:Orbitron,sans-serif;
+    font-size:10px;
+    letter-spacing:3px;
+}
+
+.card h2{
+    margin-top:12px;
+    font-family:Orbitron,sans-serif;
+    font-size:30px;
+}
+
+.sub{
+    color:var(--muted);
+    font-size:13px;
+    margin:8px 0 24px;
+}
+
+.group{margin-bottom:14px}
+
+label{
+    display:block;
+    margin-bottom:7px;
+    color:#cbd2df;
+    font-size:11px;
+    font-weight:700;
+}
+
+.input input{
+    width:100%;
+    height:51px;
+    padding:0 15px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:11px;
+    outline:none;
+    background:rgba(255,255,255,.035);
+    color:white;
+    font:inherit;
+}
+
+.input input:focus{
+    border-color:var(--cyan);
+    box-shadow:0 0 25px rgba(0,245,255,.1);
+}
+
+.input input::placeholder{color:#596274}
+
+.password{
+    position:relative;
+}
+
+.password input{padding-right:48px}
+
+.toggle{
+    position:absolute;
+    right:12px;
+    top:50%;
+    transform:translateY(-50%);
+    border:0;
+    background:none;
+    color:#778197;
+    cursor:pointer;
+}
+
+.error{
+    display:block;
+    min-height:14px;
+    margin-top:4px;
+    color:#ff648f;
+    font-size:10px;
+}
+
+.strength{
+    height:4px;
+    margin-top:7px;
+    border-radius:10px;
+    background:#1b2130;
+    overflow:hidden;
+}
+
+.strength span{
+    display:block;
+    width:0;
+    height:100%;
+    transition:.3s;
+    background:var(--cyan);
+}
+
+.strength-text{
+    display:block;
+    margin-top:5px;
+    color:#657084;
+    font-size:9px;
+}
+
+.submit{
+    width:100%;
+    height:53px;
+    margin-top:7px;
+    border:0;
+    border-radius:11px;
+    cursor:pointer;
+    background:linear-gradient(90deg,var(--cyan),#4da8ff,var(--purple));
+    color:#02050a;
+    font-family:Orbitron,sans-serif;
+    font-weight:800;
+    letter-spacing:1px;
+    transition:.3s;
+}
+
+.submit:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 35px rgba(0,245,255,.3);
+}
+
+.message{
+    min-height:19px;
+    margin-top:12px;
+    text-align:center;
+    font-size:11px;
+}
+
+.success{color:#00ffae}
+.bad{color:#ff648f}
+
+.divider{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:20px 0;
+    color:#555e70;
+    font-size:9px;
+}
+
+.divider:before,.divider:after{
+    content:"";
+    height:1px;
+    flex:1;
+    background:rgba(255,255,255,.08);
+}
+
+.switch{
+    text-align:center;
+    color:#7d879b;
+    font-size:12px;
+}
+
+.switch a{
+    color:var(--cyan);
+    text-decoration:none;
+    font-weight:700;
+}
+
+.demo{
+    margin-top:18px;
+    text-align:center;
+    color:#4e586b;
+    font-size:8px;
+    letter-spacing:2px;
+}
+
+@media(max-width:800px){
+    .container{
+        grid-template-columns:1fr;
+        max-width:520px;
+        padding:85px 0 40px;
+    }
+
+    .hero{display:none}
+}
+
+@media(max-width:480px){
+    .back{left:18px}
+    .card{padding:27px 22px}
+}
+</style>
+</head>
+
+<body>
+
+<a class="back" href="index.html">← Back to NEON</a>
+
+<main class="container">
+
+<section class="hero">
+
+    <div class="brand">N<span>E</span>ON</div>
+    <div class="online">SYSTEM ONLINE / REGISTRATION PORTAL</div>
+
+    <h1>
+        BUILD YOUR
+        <span>FUTURE.</span>
+    </h1>
+
+    <p>
+        Create your NEON account and become part of the next
+        generation technology experience.
+    </p>
+
+    <div class="features">
+        <div class="feature">⚡ FAST ACCESS</div>
+        <div class="feature">◆ SECURE UI</div>
+        <div class="feature">◇ NEON NETWORK</div>
+    </div>
+
+</section>
+
+<section class="card">
+
+    <div class="label">NEW USER</div>
+
+    <h2>Create Account</h2>
+
+    <p class="sub">Create your NEON account below.</p>
+
+    <form id="signupForm" novalidate>
+
+        <div class="group">
+            <label for="name">FULL NAME</label>
+
+            <div class="input">
+                <input
+                    id="name"
+                    type="text"
+                    placeholder="Your name"
+                    autocomplete="name"
+                >
+            </div>
+
+            <span class="error" id="nameError"></span>
+        </div>
+
+        <div class="group">
+            <label for="email">EMAIL ADDRESS</label>
+
+            <div class="input">
+                <input
+                    id="email"
+                    type="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                >
+            </div>
+
+            <span class="error" id="emailError"></span>
+        </div>
+
+        <div class="group">
+            <label for="password">PASSWORD</label>
+
+            <div class="password">
+                <input
+                    id="password"
+                    type="password"
+                    placeholder="Create a password"
+                    autocomplete="new-password"
+                >
+
+                <button type="button" class="toggle" id="toggle">
+                    ◉
+                </button>
+            </div>
+
+            <div class="strength">
+                <span id="strength"></span>
+            </div>
+
+            <span class="strength-text" id="strengthText">
+                Password strength
+            </span>
+
+            <span class="error" id="passwordError"></span>
+        </div>
+
+        <div class="group">
+            <label for="confirm">CONFIRM PASSWORD</label>
+
+            <div class="input">
+                <input
+                    id="confirm"
+                    type="password"
+                    placeholder="Repeat your password"
+                    autocomplete="new-password"
+                >
+            </div>
+
+            <span class="error" id="confirmError"></span>
+        </div>
+
+        <button class="submit" type="submit">
+            CREATE ACCOUNT →
+        </button>
+
+        <div class="message" id="message"></div>
+
+    </form>
+
+    <div class="divider">OR</div>
+
+    <div class="switch">
+        Already have an account?
+        <a href="login.html">Sign in</a>
+    </div>
+
+    <div class="demo">
+        FRONT-END DEMO AUTHENTICATION
+    </div>
+
+</section>
+
+</main>
+
+<script>
+const form = document.getElementById("signupForm");
+
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+const confirmInput = document.getElementById("confirm");
+
+const nameError = document.getElementById("nameError");
+const emailError = document.getElementById("emailError");
+const passwordError = document.getElementById("passwordError");
+const confirmError = document.getElementById("confirmError");
+
+const message = document.getElementById("message");
+const strength = document.getElementById("strength");
+const strengthText = document.getElementById("strengthText");
+
+document.getElementById("toggle").addEventListener("click", () => {
+    passwordInput.type =
+        passwordInput.type === "password" ? "text" : "password";
+});
+
+passwordInput.addEventListener("input", () => {
+
+    const value = passwordInput.value;
+    let score = 0;
+
+    if (value.length >= 6) score++;
+    if (value.length >= 10) score++;
+    if (/[A-Z]/.test(value)) score++;
+    if (/[0-9]/.test(value)) score++;
+    if (/[^A-Za-z0-9]/.test(value)) score++;
+
+    strength.style.width = (score * 20) + "%";
+
+    if (!value) {
+        strengthText.textContent = "Password strength";
+    } else if (score <= 2) {
+        strengthText.textContent = "Weak password";
+    } else if (score <= 4) {
+        strengthText.textContent = "Good password";
+    } else {
+        strengthText.textContent = "Strong password";
+    }
+});
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    nameError.textContent = "";
+    emailError.textContent = "";
+    passwordError.textContent = "";
+    confirmError.textContent = "";
+
+    message.textContent = "";
+    message.className = "message";
+
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim().toLowerCase();
+    const password = passwordInput.value;
+    const confirm = confirmInput.value;
+
+    let valid = true;
+
+    if (name.length < 2) {
+        nameError.textContent = "Enter your name.";
+        valid = false;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        emailError.textContent = "Enter a valid email address.";
+        valid = false;
+    }
+
+    if (password.length < 6) {
+        passwordError.textContent = "Use at least 6 characters.";
+        valid = false;
+    }
+
+    if (password !== confirm) {
+        confirmError.textContent = "Passwords do not match.";
+        valid = false;
+    }
+
+    if (!valid) return;
+
+    let existingUser = null;
+
+    try {
+        existingUser = JSON.parse(localStorage.getItem("neonUser"));
+    } catch {
+        existingUser = null;
+    }
+
+    if (existingUser && existingUser.email.toLowerCase() === email) {
+        emailError.textContent = "This email already has an account.";
+        return;
+    }
+
+    const user = {
+        name: name,
+        email: email,
+        password: password
+    };
+
+    try {
+        localStorage.setItem("neonUser", JSON.stringify(user));
+        localStorage.removeItem("neonLoggedIn");
+    } catch {
+        message.textContent =
+            "Browser storage is blocked. Use Live Server in VS Code.";
+        message.classList.add("bad");
+        return;
+    }
+
+    message.textContent = "ACCOUNT CREATED ✓";
+    message.classList.add("success");
+
+    setTimeout(() => {
+        window.location.href = "login.html";
+    }, 700);
+});
+</script>
+
+</body>
+</html>
+```
